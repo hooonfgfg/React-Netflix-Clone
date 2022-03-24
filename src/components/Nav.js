@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Nav.css";
 
 export default function Nav() {
   const [show, setshow] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -18,6 +21,11 @@ export default function Nav() {
     };
   }, []);
 
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+    navigate(`/search?q=${e.target.value}`);
+  };
+
   return (
     <nav className={`nav ${show && "nav__black"}`}>
       <img
@@ -26,6 +34,15 @@ export default function Nav() {
         className="nav__logo"
         onClick={() => window.location.reload()}
       />
+
+      <input
+        value={searchValue}
+        onChange={handleChange}
+        className="nav__input"
+        type="text"
+        placeholder="영화를 검색해주세요."
+      />
+
       <img
         alt="User logged"
         src="https://occ-0-3996-2218.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABXH7PEPy3QC-T0NRyFMYr2_UZjJFTtAHIqDejcLNhfXyrlQKyn5x_L73X_KMU_I12KCX8aYDH72NH9RtRluXmFc.png?r=84f"

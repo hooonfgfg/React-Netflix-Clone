@@ -30,13 +30,12 @@ export default function Banner() {
     setMovie(movieDetail);
   };
 
+  // 긴문장 처리 함수 (...)
   const truncate = (str, n) => {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   };
 
-  //console.log("movie", movie);
   if (!isClicked) {
-    console.log("@@@@@@@@@@@@@@@@@@@", movie);
     return (
       <header
         className="banner"

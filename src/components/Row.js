@@ -1,7 +1,7 @@
-import axios from "../api/axios";
 import React, { useEffect, useState } from "react";
-import "./Row.css";
+import axios from "../api/axios";
 import MovieModal from "./MovieModal";
+import "./Row.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
